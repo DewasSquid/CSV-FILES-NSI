@@ -3,7 +3,9 @@ import csv
 # Cette fonction charge un fichier CSV et le retourne sous forme de liste de listes.
 def load_csv(filename):
     with open(filename, "r", encoding="utf-8") as f:
-        return list(csv.reader(f, delimiter=";"))
+        result_list = list(csv.reader(f, delimiter=";"))
+        del result_list[0]
+        return result_list
 
 # Charger les données des fichiers CSV dans des variables.
 villes = load_csv("villes.csv")
